@@ -16,13 +16,20 @@
         "How are you",
         "Is anyone there?",
         "Hello",
-        "Good day"
+        "Good day",
+        "oi"
       ],
       "responses": [
-        "Hey :-)",
-        "Hello, thanks for visiting",
-        "Hi there, what can I do for you?",
-        "Hi there, how can I help?"
+        "Oiii! Vim te dizer que posso te sugerir algumas receitas e te ajudar se alguma duvida na cozinha! Qualquer coisa me chama, ta?"
+      ]
+    },
+    {
+      "tag": "recomendation",
+      "patterns": [
+        "Recomendacao"
+      ],
+      "responses": [
+        "mensagens de recomendacao"
       ]
     },
     {

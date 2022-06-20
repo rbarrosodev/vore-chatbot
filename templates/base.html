@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+<meta charset="UTF-8"/>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 <head>
     <meta charset="UTF-8">
     <title>Chatbot</title>
     <link href="https://vjs.zencdn.net/7.19.2/video-js.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
@@ -24,8 +26,24 @@
                 <div></div>
             </div>
             <div class="chatbox__footer">
-                <input type="text" placeholder="Escreva aqui...">
-                <button class="chatbox__send--footer send__button">Enviar</button>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 mb-3 mx-auto">
+                            <button type="button" class="btn btn-outline-warning" id="teste" onclick="myWord(event)">Recomendação</button>
+                        </div>
+                        <div class="col-6 mb-3 mx-auto">
+                            <button type="button" class="btn btn-outline-warning" id="teste2" onclick="myWord(event)">Dúvida</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <input type="text" id="inputbox" class="inputbox" placeholder="Escreva aqui...">
+                        </div>
+                        <div class="col-4">
+                            <button type="button" class="chatbox__send--footer send__button btn btn-outline-warning" id="sendmsg">Enviar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="chatbox__button">
@@ -39,6 +57,17 @@
     </script>
     <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
     <script src="https://vjs.zencdn.net/7.19.2/video.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script>
+        function myWord(e){
+            var element = e.target || e.srcElement;
+            var word = element.innerText;
+            var inputbox = document.getElementById('inputbox');
+            inputbox.value = word;
+            document.getElementById("sendmsg").click(); 
+        }
+    </script>
 
 </body>
 </html>
