@@ -1,19 +1,5 @@
-import time
 from flask import Flask, request
-from chatterbot import ChatBot
 import json
-from chatterbot.trainers import ListTrainer
-
-time.clock = time.time()
-
-chatbot = ChatBot('Vore')
-
-# trainer = ListTrainer(chatbot)
-#
-# trainer.train([
-#     "testando",
-#     "funcionou"
-# ])
 
 app = Flask(__name__)
 
@@ -23,6 +9,12 @@ def webhook():
     req = request.get_json(silent=True, force=True)
     intent_name = req.get('queryResult')['intent']['displayName']
     match intent_name:
+        case 'teste':
+            response = json.dumps({"followupEventInput": {"name": 'bla'}})
+            return response
+        case 'afirmativo - previous':
+            response = json.dumps({"followupEventInput": {"name": 'test'}})
+            return response
         case 'restrição_alimentar':
             global fd_restrict
             fd_restrict = req.get('queryResult')['queryText']
