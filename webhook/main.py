@@ -1,4 +1,6 @@
 from flask import Flask, request
+from df_response_lib import *
+import json
 
 app = Flask(__name__)
 
@@ -16,7 +18,7 @@ def webhook():
                 }
             else:
                 return {
-                    "fulfillmentText": 'Não entendi... Você pode repetir?',
+                    "fulfillmentText": 'Não entendi... Você pode repetir por favor?',
                     "source": 'webhook'
                 }
         case 'restrição_alimentar':
